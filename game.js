@@ -106,13 +106,16 @@ function drawPlayer() {
 }
 
 function drawHoop() {
-  // Backboard (weiß, unverändert)
+  // 1. Backboard (weiß, unverändert)
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(hoop.x - 10, hoop.y - 50, 10, 60);
 
-  // 🔥 ORANGER HORIZONTALER BALKEN (vorher schwarz/rot)
+  // 2. ORANGER HORIZONTALER BALKEN (ersetzt den roten/alten Strich komplett)
   ctx.fillStyle = '#FFA500'; // Knallorange
-  ctx.fillRect(hoop.x, hoop.y, hoop.width, hoop.height); // Horizontaler Balken
+  ctx.fillRect(hoop.x, hoop.y, hoop.width, hoop.height); // Balken
+  
+  // 3. Entferne den roten Netz-Strich (wichtig, sonst überdeckt er das Orange!)
+  // ctx.stroke(); <- Diese Zeile wird NICHT mehr aufgerufen!
 }
 
 function drawBall() {
