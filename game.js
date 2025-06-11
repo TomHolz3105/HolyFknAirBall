@@ -106,17 +106,13 @@ function drawPlayer() {
 }
 
 function drawHoop() {
-  // Backboard (weiß)
+  // Backboard (weiß, unverändert)
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(hoop.x - 10, hoop.y - 50, 10, 60);
 
-  // 🔥 ORANGER RING (statt rot)
+  // 🔥 ORANGER HORIZONTALER BALKEN (vorher schwarz/rot)
   ctx.fillStyle = '#FFA500'; // Knallorange
-  ctx.beginPath();
-  ctx.moveTo(hoop.x, hoop.y);
-  ctx.lineTo(hoop.x + (hoop.width * hoop.netDirection), hoop.y); // Zeigt nach links
-  ctx.lineWidth = 5; // Dicke des Rings
-  ctx.stroke();
+  ctx.fillRect(hoop.x, hoop.y, hoop.width, hoop.height); // Horizontaler Balken
 }
 
 function drawBall() {
