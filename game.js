@@ -110,12 +110,12 @@ function drawHoop() {
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(hoop.x - 10, hoop.y - 50, 10, 60);
 
-  // Korb (roter Strich zeigt nach LINKS)
-  ctx.fillStyle = '#FF0000';
+  // 🔥 ORANGER RING (statt rot)
+  ctx.fillStyle = '#FFA500'; // Knallorange
   ctx.beginPath();
   ctx.moveTo(hoop.x, hoop.y);
-  ctx.lineTo(hoop.x + (hoop.width * hoop.netDirection), hoop.y); // LINKS wenn netDirection = -1
-  ctx.lineWidth = 5;
+  ctx.lineTo(hoop.x + (hoop.width * hoop.netDirection), hoop.y); // Zeigt nach links
+  ctx.lineWidth = 5; // Dicke des Rings
   ctx.stroke();
 }
 
