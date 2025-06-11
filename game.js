@@ -106,16 +106,17 @@ function drawPlayer() {
 }
 
 function drawHoop() {
-  // 1. Backboard (weiß, unverändert)
+  // 1. Backboard (weiß)
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(hoop.x - 10, hoop.y - 50, 10, 60);
 
-  // 2. ORANGER HORIZONTALER BALKEN (ersetzt den roten/alten Strich komplett)
-  ctx.fillStyle = '#FFA500'; // Knallorange
-  ctx.fillRect(hoop.x, hoop.y, hoop.width, hoop.height); // Balken
-  
-  // 3. Entferne den roten Netz-Strich (wichtig, sonst überdeckt er das Orange!)
-  // ctx.stroke(); <- Diese Zeile wird NICHT mehr aufgerufen!
+  // 2. ORANGER BALKEN (um 180° gedreht nach links)
+  ctx.save(); // Aktuellen Canvas-Zustand speichern
+  ctx.translate(hoop.x + hoop.width / 2, hoop.y + hoop.height / 2); // Mittelpunkt des Korbs
+  ctx.scale(-1, 1); // Horizontal spiegeln (180° Drehung)
+  ctx.fillStyle = '#FFA500';
+  ctx.fillRect(-hoop.width / 2, -hoop.height / 2, hoop.width, hoop.height); // Balken
+  ctx.restore(); // Ursprünglichen Zustand wiederherstellen
 }
 
 function drawBall() {
